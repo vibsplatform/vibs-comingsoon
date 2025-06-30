@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vibs – Coming Soon</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    /* προσθέτουμε custom keyframes / animations */
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#fdf5e6',
+            'dark-blue': '#1e3a8a',
+            'brand-orange': '#f97316',
+          },
+          keyframes: {
+            vib: {
+              '0%,100%': { transform: 'translateX(0)' },
+              '20%,60%': { transform: 'translateX(-2px)' },
+              '40%,80%': { transform: 'translateX(2px)' },
+            },
+            blink: {
+              '0%,80%,100%': { opacity: '0' },
+              '40%':          { opacity: '1' },
+            },
+          },
+          animation: {
+            vib: 'vib 0.35s ease-in-out',
+            blink1: 'blink 1.4s infinite 0s',
+            blink2: 'blink 1.4s infinite 0.2s',
+            blink3: 'blink 1.4s infinite 0.4s',
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    .bebas { font-family: 'Bebas Neue', cursive; }
+    .pacifico { font-family: 'Pacifico', cursive; }
+
+    /* dark-mode toggle (προαιρετικό) */
+    html.dark body { background-color:#111827; color:#ffffff; }
+  </style>
+</head>
+
+<body class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-cream via-white to-brand-orange text-dark-blue px-4 text-center">
+
+  <!-- LOGO πάνω -->
+  <img src="images/vibs-logo.png"
+       alt="Vibs logo"
+       class="mx-auto h-80 mt-[-1.5rem] mb-8 hover:animate-vib transition-transform select-none" style="display:block; margin-top:-1.5rem; margin-bottom:3vh;" />
+
+  <!-- Κεντρικό περιεχόμενο: εικόνα αριστερά, κείμενο δεξιά -->
+  <div class="flex flex-col md:flex-row items-center justify-center w-full max-w-5xl mx-auto gap-8 md:gap-16">
+    <!-- Εικόνα/illustration αριστερά -->
+    <img src="images/login-image.png"
+         alt="Login illustration"
+         class="w-full max-w-xs md:max-w-sm rounded-2xl shadow-xl mb-8 md:mb-0 object-cover" />
+
+    <!-- Κείμενο δεξιά -->
+    <div class="flex-1 text-left">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl bebas tracking-[.10em] text-dark-blue drop-shadow-[0_4px_24px_rgba(30,58,138,0.25)] uppercase mb-6">
+        Local hosts.<br>
+        Unique <span class="text-brand-orange pacifico drop-shadow-[0_2px_20px_rgba(249,115,22,0.7)] lowercase">vibs</span>.<br>
+        Unforgettable moments.<br>
+        <span class="text-brand-orange font-bold text-2xl md:text-3xl flex items-center gap-1">Coming soon
+          <span class="inline-block animate-blink1">.</span>
+          <span class="inline-block animate-blink2">.</span>
+          <span class="inline-block animate-blink3">.</span>
+        </span>
+      </h1>
+      <p class="mt-6 text-base md:text-lg text-dark-blue/70 dark:text-white/70 max-w-lg font-semibold tracking-wide">
+        Be the first to experience authentic local adventures and connect with passionate hosts. The real vibs are almost here!
+      </p>
+    </div>
+  </div>
+</body>
+</html>
